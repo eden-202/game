@@ -80,7 +80,10 @@ export class DialogGamePick {
     public categoryAPI:CategoriesService
   ) {
     this.categoyList = this.categoryAPI.list();
+
+    //111
   }
+
 
 
 
