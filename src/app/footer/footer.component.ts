@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
     CommonModule, MatIconModule, RouterModule
   ],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css',
+  styleUrls: ['./footer.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent { }
