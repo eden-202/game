@@ -33,3 +33,4 @@ export class GameProfileService {
      return this.listGames; 
   }
 }
+
