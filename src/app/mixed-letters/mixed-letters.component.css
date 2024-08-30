@@ -1,4 +1,20 @@
-.centered-bold-title {
+.game-container {
     text-align: center;
-    font-weight: bold;
-}
+  }
+  
+  .scrambled-letters {
+    margin: 10px;
+    font-size: 24px;
+    letter-spacing: 5px;
+  }
+  
+  input[type="text"] {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 5px;
+  }
+  
+  .progress-info {
+    margin-top: 10px;
+  }
+  
