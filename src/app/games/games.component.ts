@@ -61,14 +61,14 @@ export class GamesComponent {
           }
         </mat-select>
       </mat-form-field>
-      @if(categoryPick > 0){
+      @if(categoryPick){
         <p>words: {{categorPickData.words.length}}</p>
         <p>last update: {{categorPickData.lastUpdateDate | date: 'dd/MM/yyyy'}}</p>
       }
       
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      @if(categoryPick > 0){
+      @if(categoryPick){
         <button mat-button mat-dialog-close routerLink="/game/{{gameAlias}}/{{categorPickData.id}}">Play</button>
       }
       
@@ -88,7 +88,6 @@ export class DialogGamePick {
     @Inject(MAT_DIALOG_DATA) public data: any,
     public categoryAPI:CategoriesService
   ) {
-    console.log(data)
     if(data.gameid == 1){
       this.gameAlias = 'trivia';
     }else if(data.gameid == 2){
@@ -102,7 +101,6 @@ export class DialogGamePick {
   categorySelect(category:any){
     this.categoryPick = category;
     this.categorPickData = this.categoyList.filter((obj:any) => obj.id == this.categoryPick)[0];
-    console.log(this.categorPickData)
   }
 
 }

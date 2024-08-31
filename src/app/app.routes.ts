@@ -6,8 +6,9 @@ import { CategoryFormComponent } from './category-form/category-form.component';
 import { GamesComponent } from './games/games.component';
 import { SortingGameComponent } from './sorting-game/sorting-game.component';
 import { HelpComponent } from './Help/Help.component';
-import { MixedLettersComponent } from './mixed-letters/mixed-letters.component';
+import { MixedLettersComponent } from './Mixed-letters/mixed-letters.component';
 import { TriviaComponent } from './trivia/trivia.component';
+import { SummaryComponent } from './summary/summary.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // הגדרת Dashboard כעמוד הבית
@@ -20,6 +21,8 @@ export const routes: Routes = [
     { path: 'game/sorting/:category', component: SortingGameComponent },
     { path: 'game/mixed/:category', component: MixedLettersComponent },
     { path: 'game/trivia/:category', component: TriviaComponent },
+    { path: 'summary', component: SummaryComponent },
+    
 ];
 
 @NgModule({

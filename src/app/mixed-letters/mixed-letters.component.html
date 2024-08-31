@@ -1,1 +1,18 @@
-<h1 class="centered-bold-title">Mixed Letters</h1>
+<div class="game-container">
+    <h2>{{ currentWord.target }}</h2>
+    <div class="scrambled-letters">
+      <span *ngFor="let letter of scrambledLetters">{{ letter }}</span>
+    </div>
+    <input [(ngModel)]="userInput" type="text" placeholder="Type the correct word" />
+    <button mat-flat-button color="primary" (click)="submitWord()">Submit</button>
+    <app-quit-button></app-quit-button>
+    <app-points-display [points]="points"></app-points-display>
+    <mat-progress-bar [value]="progress"></mat-progress-bar>
+    <div class="progress-info">
+      <span>{{ currentWordIndex + 1 }}/{{ words.length }}</span>
+    </div>
+    <button mat-flat-button color="primary" (click)="resetInput()">Reset</button>
+
+    
+  </div>
+  
