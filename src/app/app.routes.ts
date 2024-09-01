@@ -1,27 +1,32 @@
-import { Routes } from '@angular/router';
-import { CategoryFormComponent } from './category-form/category-form.component';
-import { DashboardPageComponent } from './dashboard-page/dashboard-page.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategoriesListComponent } from './categories-list/categories-list.component';
-import { HelpPageComponent } from './help-page/help-page.component';
-import { ChooseCategoryComponent } from './choose-category/choose-category.component';
-import { MatchingGameComponent } from './games-modules/matching-game-module/matching-game/matching-game.component';
-import { MixedLettersGameComponent } from './games-modules/mixed-letters-game-module/mixed-letters-game/mixed-letters-game.component';
-import { WordSorterGameComponent } from './games-modules/word-sorter-game-module/word-sorter-game/word-sorter-game.component';
-import { WordSorterGameResultsComponent } from './games-modules/word-sorter-game-module/word-sorter-game-results/word-sorter-game-results.component';
-import { MixedLettersGameResultsComponent } from './games-modules/mixed-letters-game-module/mixed-letters-game-results/mixed-letters-game-results.component';
-import { TimerComponent } from './timer/timer.component';
+import { CategoryFormComponent } from './category-form/category-form.component';
+import { GamesComponent } from './games/games.component';
+import { SortingGameComponent } from './sorting-game/sorting-game.component';
+import { HelpComponent } from './Help/Help.component';
+import { MixedLettersComponent } from './Mixed-letters/mixed-letters.component';
+import { TriviaComponent } from './trivia/trivia.component';
+import { SummaryComponent } from './summary/summary.component';
 
 export const routes: Routes = [
-    {path: "", component: DashboardPageComponent},
-    {path: "categories-list", component: CategoriesListComponent},
-    {path: "category/:id", component: CategoryFormComponent},
-    {path: "newcategory", component: CategoryFormComponent},
-    {path: "help", component: HelpPageComponent},
-    {path: "choose-category", component: ChooseCategoryComponent},
-    {path: "matching-game/:categoryId", component:MatchingGameComponent},
-    {path: "word-sorter-game/:categoryId", component:WordSorterGameComponent},
-    {path: "mixed-letters-game/:categoryId", component:MixedLettersGameComponent},
-    {path: "mixed-letters-game-results/:passedObjects", component:MixedLettersGameResultsComponent},
-    {path: "word-sorter-game-results/:passedObjects", component:WordSorterGameResultsComponent},
-    {path: "timer", component:TimerComponent}
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // הגדרת Dashboard כעמוד הבית
+    { path: 'dashboard', component: DashboardComponent }, // עמוד הבית
+    { path: 'newcategory', component: CategoryFormComponent },
+    { path: 'category/:id', component: CategoryFormComponent },
+    { path: 'help', component: HelpComponent }, // נתיב לעמוד העזרה
+    { path: 'games', component: GamesComponent },
+    { path: 'admin', component: CategoriesListComponent },
+    { path: 'game/sorting/:category', component: SortingGameComponent },
+    { path: 'game/mixed/:category', component: MixedLettersComponent },
+    { path: 'game/trivia/:category', component: TriviaComponent },
+    { path: 'summary', component: SummaryComponent },
+    
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
+export class AppRoutingModule { }
