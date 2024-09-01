@@ -1,0 +1,37 @@
+
+
+
+<div class="container">
+    <div class="center-content">
+        <div class="headline" *ngIf="selectedCategory">
+            <h1>Word Sorter - {{selectedCategory.name}}</h1>
+            <app-quit-game></app-quit-game>
+            <mat-icon>monetization_on</mat-icon> {{points}}
+            <div *ngIf="gameTime">
+                <app-timer [duration]="gameTime" (reportTimeLeft)="reportTimeLeftHandler($event)"></app-timer>
+                </div>
+        </div>
+
+
+        <div class="question" *ngIf="inOrderedWords && inOrderedWords.length > 0 && selectedCategory && inOrderedWords.length > step">
+            <p>Is word {{inOrderedWords[step].origin}} part of the {{selectedCategory.name}} category?</p>
+        </div>
+        <!-- Show loading indicator or message while categoryWords is loading -->
+        <div *ngIf="!inOrderedWords || inOrderedWords.length === 0 || ! selectedCategory">
+            <p>Loading category words...</p>
+        </div>
+        
+        <br>
+        <div class="answerButtons">
+            <button  class="yesButton" cdkFocusInitial mat-button (click)="check_answer(true)"><b>Yes</b></button>
+            <button  class="noButton" cdkFocusInitial mat-button (click)="check_answer(false)" ><b>No</b></button>
+        </div>
+        <br><br>
+
+        <div class="progressBar">
+            <mat-progress-bar mode="determinate" 
+            value="{{(step) / inOrderedWords.length * 100 }}"></mat-progress-bar> 
+        </div>
+        <br>
+    </div>
+</div>

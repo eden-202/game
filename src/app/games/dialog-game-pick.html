@@ -1,0 +1,11 @@
+<h2>Select a category</h2>
+<mat-form-field>
+    <mat-select (selectionChange)="selectCategory($event.value)">
+        <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+    </mat-select>
+</mat-form-field>
+<div *ngIf="selectedCategory">
+    <p>Words: {{ selectedCategory.words.length }}</p>
+    <p>Last updated: {{ selectedCategory.lastUpdateDate | date:'dd/MM/yyyy' }}</p>
+</div>
+<button mat-button [routerLink]="[data.url, selectedCategory.id]">Play</button>
