@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /.angular
+/src_back
 
 # Node
 /node_modules
