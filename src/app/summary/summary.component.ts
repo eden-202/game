@@ -15,8 +15,9 @@ export interface GameOverData {
 }
 
 export interface SummeryTable {
-  hebrew: string;
   english: string;
+  category: string;
+  guess: any;
   isCorrect: boolean;
 }
 
@@ -34,7 +35,7 @@ export interface SummeryTable {
   styleUrl: './summary.component.css',
 })
 export class SummaryComponent {
-  displayedColumns: string[] = ['hebrew', 'english', 'iscorrect'];
+  displayedColumns: string[] = ['english', 'category', 'guess', 'iscorrect'];
   dataFromGame: GameOverData;
   dataSource: SummeryTable[];
 
@@ -43,17 +44,36 @@ export class SummaryComponent {
     this.dataFromGame = navigation?.extras?.state?.['data'] as GameOverData;
 
     // עבור כל צמד מילים
+    console.log(this.dataFromGame)
     this.dataSource = this.dataFromGame.words.map((translatedword, index) => ({
+      
       // נחלץ את המילה בעברית
-      hebrew: translatedword.target,
+      // hebrew: translatedword.target,
       // נחלץ את המילה באנגלית
       english: translatedword.origin,
+      category:  this.dataFromGame.categoryName, 
+      guess: this.dataFromGame.guesses[index],
       // נבדוק אם הניחוש של המשתמש היה נכון
-      isCorrect:
-        this.dataFromGame.guesses[index].toLowerCase() ==
-        this.dataFromGame.words[index].origin.toLowerCase(),
+      isCorrect: this.isGuessCorrect(translatedword.origin, this.dataFromGame, this.dataFromGame.guesses[index])
+      // isCorrect:
+      //   this.dataFromGame.guesses[index].toLowerCase() ==
+      //   this.dataFromGame.words[index].origin.toLowerCase(),
     }));
   }
+
+  isGuessCorrect(word: string, category:any, guess: any): boolean {
+    // אם המשתמש ניחש 'כן' והמילה באמת נמצאת בקטגוריה
+    // או אם המשתמש ניחש לא, והמילה לא בקטגוריה
+    if (guess == 'Yes' && category.words.some((tw:any) => tw.origin == word) ||
+    guess != 'Yes' && !category.words.some((tw:any) => tw.origin == word)) {
+      // המשתמש צדק
+      return true;
+    }
+    // המשתמש טעה
+    return false;
+  }
+
+  
 
   getIcon(success: boolean): string {
     return success ? 'check_circle' : 'cancel';

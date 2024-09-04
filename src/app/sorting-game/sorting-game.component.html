@@ -1,2 +1,18 @@
-<h1 class="centered-bold-title">Word Sorter</h1>
+<div class="game-container" *ngIf="categorPickData">
+    <h2>{{ categorPickData.name }}</h2>
+    <div *ngIf="currentWord">
+        <p>Is word "{{ currentWord.origin }}" part of the "{{ categorPickData.name }}" category?</p>
+        <button mat-flat-button color="primary" (click)="checkAnswer(true)">Yes</button>
+        <button mat-flat-button color="primary" (click)="checkAnswer(false)">No</button>
+    </div>
+    <app-quit-button></app-quit-button>
+    <app-points-display [points]="points"></app-points-display>
+    <mat-progress-bar [value]="progress"></mat-progress-bar>
+    <div class="progress-info">
+        <span>{{ step + 1 }}/{{ inOrderedWords.length }}</span>
+    </div>
+</div>
 
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>

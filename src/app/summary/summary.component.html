@@ -1,6 +1,6 @@
 <div>
   <h1 class="tittle">
-    Messy Words - {{ dataFromGame.categoryName }} - Results
+    {{ dataFromGame.categoryName }} - Results
   </h1>
   <div class="grade">Grade: {{ dataFromGame.points }}</div>
   <div class="grade">
@@ -10,15 +10,27 @@
   <div class="table">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Hebrew Column -->
-    <ng-container matColumnDef="hebrew">
+    <!-- <ng-container matColumnDef="hebrew">
       <th mat-header-cell *matHeaderCellDef>Hebrew</th>
       <td mat-cell *matCellDef="let element">{{ element.hebrew }}</td>
-    </ng-container>
+    </ng-container> -->
 
     <!-- English Column -->
     <ng-container matColumnDef="english">
       <th mat-header-cell *matHeaderCellDef>English</th>
       <td mat-cell *matCellDef="let element">{{ element.english }}</td>
+    </ng-container>
+
+    <!-- cateogry Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+    </ng-container>
+
+    <!-- Guess Column -->
+    <ng-container matColumnDef="guess">
+      <th mat-header-cell *matHeaderCellDef>Guess</th>
+      <td mat-cell *matCellDef="let element">{{ element.guess }}</td>
     </ng-container>
 
     <!-- Status Column -->

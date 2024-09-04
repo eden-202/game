@@ -1,4 +1,31 @@
-<h2>Select a category</h2>
+
+<h2 mat-dialog-title>choose category to play</h2>
+
+    <mat-dialog-content class="mat-typography">
+      
+      <mat-form-field>
+        <mat-select (selectionChange)="categorySelect($event.value)">
+          <!-- @for(item of categoyList; track item.id){ -->
+            <mat-option *ngFor="let item of categoyList" value="{{item.id}}">{{item.name}}</mat-option>
+          <!-- } -->
+        </mat-select>
+      </mat-form-field>
+      <ng-container *ngIf="categoryPick">
+        <p>words: {{categorPickData.words.length}}</p>
+        <p>last update: {{categorPickData.lastUpdateDate | date: 'dd/MM/yyyy'}}</p>
+      </ng-container>
+      
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <ng-container *ngIf="categoryPick">
+        <button mat-button mat-dialog-close (click)="playGame()">Play</button>
+    </ng-container>
+      
+    </mat-dialog-actions>
+
+
+
+<!-- <h2>Select a category</h2>
 <mat-form-field>
     <mat-select (selectionChange)="selectCategory($event.value)">
         <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
@@ -8,4 +35,4 @@
     <p>Words: {{ selectedCategory.words.length }}</p>
     <p>Last updated: {{ selectedCategory.lastUpdateDate | date:'dd/MM/yyyy' }}</p>
 </div>
-<button mat-button [routerLink]="[data.url, selectedCategory.id]">Play</button>
+<button mat-button [routerLink]="[data.url, selectedCategory.id]">Play</button> -->

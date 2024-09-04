@@ -69,10 +69,12 @@ export class MixedLettersComponent implements OnInit {
       this.dialog.open(SuccessDialogComponent);
       this.correctGuesses++;
       this.points += Math.floor(100 / this.words.length);
+      this.allGuesses.push('Yes');
     } else {
+      this.allGuesses.push('No');
       this.dialog.open(FailureDialogComponent);
     }
-    this.allGuesses.push(this.userInput);
+    
     this.nextWord();
   }
 
