@@ -5,11 +5,12 @@ import { MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { GameProfileService } from '../services/game-profile.service';
 import { DialogGamePick } from './dialog-game-pick.component';
 import { GameProfile } from '../../shared/model/GameProfile';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-games',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatDialogModule, DialogGamePick],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatDialogModule, DialogGamePick],
   templateUrl: './games.component.html',
   styleUrl: './games.component.css'
 })

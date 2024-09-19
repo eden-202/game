@@ -22,19 +22,11 @@ export class DialogGamePick {
     categorPickData:any;
     gameAlias:any;
 
-
     constructor(
         @Inject(MAT_DIALOG_DATA) public selectedGameProfile: GameProfile,
         public categoryAPI:CategoriesService,
         private router: Router
     ) {
-        // if(data.gameid == 1){
-        // this.gameAlias = 'trivia';
-        // }else if(data.gameid == 2){
-        // this.gameAlias = 'mixed';
-        // }else if(data.gameid == 3){
-        // this.gameAlias = 'sorting';
-        // }
         this.categoyList = this.categoryAPI.list();
     }
 

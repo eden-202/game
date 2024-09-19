@@ -8,7 +8,7 @@ export class ServiceService {
   idxCategory: Map<number, Category>;
   nextId: number;
 
-  constructor(){      
+  constructor(){
     this.idxCategory = new Map<number, Category>();
     this.nextId = 0;
 
@@ -29,7 +29,6 @@ export class ServiceService {
       this.nextId++;
     }
     
-        
     add_word_to_category(category:Category, new_source_word: string, new_target_word:string){
       category.words_list.push(new synonym(new_source_word, new_target_word));
     }
@@ -46,7 +45,6 @@ export class ServiceService {
     category.last_edit_date = new Date(Date.now());
     this.idxCategory.set(category.category_id, category);
     localStorage.setItem(JSON.stringify(category.category_id), JSON.stringify(category));
-
   }
 
   update_category(category: Category){

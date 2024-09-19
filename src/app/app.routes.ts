@@ -22,7 +22,6 @@ export const routes: Routes = [
     { path: 'game/mixed/:category', component: MixedLettersComponent },
     { path: 'game/trivia/:category', component: TriviaComponent },
     { path: 'summary', component: SummaryComponent },
-    
 ];
 
 @NgModule({

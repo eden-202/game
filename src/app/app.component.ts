@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-imports: [CommonModule, RouterModule, FooterComponent ,FormsModule,MatProgressBarModule,MatButtonModule, HeaderComponent],
+  imports: [CommonModule, RouterModule, FooterComponent ,FormsModule,MatProgressBarModule,MatButtonModule, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

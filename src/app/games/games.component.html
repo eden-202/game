@@ -3,17 +3,17 @@
 
     
     <div class="card-container">
-      @for(item of gamesList; track item.id){
-      <mat-card class="example-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>{{item.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <h3>{{item.description}}</h3>
-          <button mat-stroked-button (click)="openDialog(item)">start game</button>
-        </mat-card-content>
-      </mat-card>
-      }
+      <ng-container *ngFor="let item of gamesList">
+        <mat-card class="example-card" appearance="outlined" >
+          <mat-card-header>
+            <mat-card-title>{{item.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <h3>{{item.description}}</h3>
+            <button mat-stroked-button (click)="openDialog(item)">start game</button>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
 
     </div>
   </div>
